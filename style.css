@@ -17,13 +17,30 @@ h1 {
     height: 100vh;
 }
 
+#start-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    size: 500px;
+}
+
+#start-screen button {
+    font-size: 1.5em;  
+    padding: 1em;  
+    margin: 0.5em;
+
+}
+
 /* Main game section styling */
 #game-screen {
    background-image: url('./assets//Background/backgroundgame.png');
    background-size: cover;
    background-repeat: no-repeat;
-   height: 100vh;
+   height: 90vh;
    display: none;
+
     /* Style for the main game area */
 }
 
