@@ -6,7 +6,11 @@ document.getElementById('new-game-button').addEventListener('click', function() 
     document.getElementById('sid-display').innerText = `SID: ${SID}`;
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-screen').style.display = 'block';
+    document.body.classList.remove('start-screen');
   
+    document.body.classList.add('game-screen');
+   
+    
 });
 
 document.getElementById('load-game-button').addEventListener('click', function() {
@@ -16,8 +20,27 @@ document.getElementById('load-game-button').addEventListener('click', function()
     document.getElementById('sid-display').innerText = `SID: ${SID}`;
     document.getElementById('start-screen').style.display = 'none';
     document.getElementById('game-screen').style.display = 'block';
+    document.body.classList.remove('start-screen');
+  
+    document.body.classList.add('game-screen');
+    
     
 });
 
+
+
+// Music controlls
+document.getElementById('mute-button').addEventListener('click', function() {
+    const bgMusic = document.getElementById('bg-music');
+    if (bgMusic.muted) {
+        bgMusic.muted = false;
+        this.innerText = 'Mute';
+    } else {
+        bgMusic.muted = true;
+        this.innerText = 'Unmute';
+    }
+});
+
+// End of muusci Controlls
 
 // End of login page

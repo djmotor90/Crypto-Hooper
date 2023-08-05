@@ -7,7 +7,7 @@
     <title>Crypto Trooper</title>
 </head>
 
-<body>
+<body class="start-screen">
     <header>
         <h1>Crypto Trooper</h1>
     </header>    
@@ -15,6 +15,12 @@
     <main id="start-screen" class="start-screen-background">
         <button id="new-game-button">New Game</button>
         <button id="load-game-button">Load Game</button>
+        <button id="playmusic" onclick="document.getElementById('bg-music').play()">Play Music</button>
+        <button id="mute-button">Mute</button>
+        <audio id="bg-music" src="./assets/Music/Interstellar Mood - Nico Staf.mp3" loop autoplay> 
+                    Your browser does not support the audio element.
+        </audio>
+
     </main>
         <!-- End of the login page -->
 
@@ -66,7 +72,7 @@
         <!-- Game END -->
 
         <!-- Footer Start -->
-    <footer>
+    <footer class="footer">
         <p>© Crypto Trooper</p>
     </footer>
         <!-- Footer End -->
