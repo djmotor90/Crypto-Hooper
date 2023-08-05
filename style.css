@@ -40,6 +40,27 @@ h1 {
 
 }
 
+/* Music button controlls */
+#mute-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+}
+
+#playmusic {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    
+}
+
+
+
+
+
+
+
 /* Main game section styling */
 #game-screen {
    background-image: url('./assets//Background/backgroundgame.png');
@@ -102,12 +123,20 @@ footer {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 0.5em;
+    
 }
 
 #playmusic {
     position: absolute;
     top: 10px;
     right: 100px;
-    font-size: 0.5em;
+    
+}
+
+
+#mute-button-game {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
 }

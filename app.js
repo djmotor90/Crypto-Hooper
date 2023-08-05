@@ -40,7 +40,26 @@ document.getElementById('mute-button').addEventListener('click', function() {
         this.innerText = 'Unmute';
     }
 });
+document.getElementById('new-game-button').addEventListener('click', function() {
+    document.getElementById('bg-music').src = './assets/Music/The Inner Sound - Jesse Gallagher.mp3';
+  
+});
 
-// End of muusci Controlls
+// End of music Controlls
 
 // End of login page
+
+
+// Start of the game
+
+
+document.getElementById('mute-button-game').addEventListener('click', function() {
+    const bgMusic = document.getElementById('bg-music');
+    if (bgMusic.muted) {
+        bgMusic.muted = false;
+        this.innerText = 'Mute';
+    } else {
+        bgMusic.muted = true;
+        this.innerText = 'Unmute';
+    }
+});
