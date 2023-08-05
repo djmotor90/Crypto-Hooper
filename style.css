@@ -1,0 +1,60 @@
+/* Header styling */
+header {
+    /* Style for the header section */
+}
+
+/* Title styling */
+h1 {
+    /* Style for the main title */
+}
+
+/* Main section styling */
+main {
+    /* Style for the main game area */
+}
+
+/* Player info section styling */
+#player-info {
+    /* Style for the player info section */
+}
+
+/* Market info section styling */
+#market-info {
+    /* Style for the market info section */
+}
+
+/* Mining rigs section styling */
+#mining-rigs {
+    /* Style for the mining rigs section */
+}
+
+/* Upgrades section styling */
+#upgrades {
+    /* Style for the upgrades section */
+}
+
+/* Cooling systems section styling */
+#cooling-systems {
+    /* Style for the cooling systems section */
+}
+
+/* Energy management section styling */
+#energy-management {
+    /* Style for the energy management section */
+}
+
+/* Footer styling */
+footer {
+    /* Style for the footer section */
+}
+
+/* You could also add classes for specific types of elements, like buttons or stats. For example: */
+
+.button {
+    /* Style for all buttons */
+}
+
+.stat {
+    /* Style for all stats */
+}
+
