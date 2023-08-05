@@ -1,5 +1,6 @@
 /* Header styling */
 header {
+    text-align: center;
     /* Style for the header section */
 }
 
@@ -10,6 +11,10 @@ h1 {
 
 /* Main section styling */
 main {
+   background-image: url(/Game-1/assets/backgroundgame.png);
+   background-size: cover;
+   background-repeat: no-repeat;
+   height: 100vh;
     /* Style for the main game area */
 }
 
@@ -45,6 +50,7 @@ main {
 
 /* Footer styling */
 footer {
+    text-align: center;
     /* Style for the footer section */
 }
 
