@@ -3,7 +3,14 @@ header {
     text-align: center;
     /* Style for the header section */
 }
+/* Hides the title of the game */
+body.start-screen header {
+    display: none;
+}
 
+body.start-screen footer {
+    display: none;
+}
 /* Title styling */
 h1 {
     /* Style for the main title */
@@ -80,7 +87,7 @@ footer {
     /* Style for the footer section */
 }
 
-/* You could also add classes for specific types of elements, like buttons or stats. For example: */
+
 
 .button {
     /* Style for all buttons */
@@ -90,3 +97,17 @@ footer {
     /* Style for all stats */
 }
 
+/* Music button controlls */
+#mute-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.5em;
+}
+
+#playmusic {
+    position: absolute;
+    top: 10px;
+    right: 100px;
+    font-size: 0.5em;
+}
