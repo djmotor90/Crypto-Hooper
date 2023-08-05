@@ -9,12 +9,21 @@ h1 {
     /* Style for the main title */
 }
 
-/* Main section styling */
-main {
-   background-image: url(/Game-1/assets/backgroundgame.png);
+/* Login Page styling */
+.start-screen-background {
+    background-image: url('assets/Background/loginpage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* Main game section styling */
+#game-screen {
+   background-image: url('./assets//Background/backgroundgame.png');
    background-size: cover;
    background-repeat: no-repeat;
    height: 100vh;
+   display: none;
     /* Style for the main game area */
 }
 
