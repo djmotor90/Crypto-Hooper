@@ -202,27 +202,32 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
-
-
-
 /* End of Player Dashboard */
-
-/* Market Info Start */
-
-.modal-content {
-    max-height: 80vh;
-    overflow-y: auto;
-}
-/* Market info End */
 
 
 
 /* Shop Menu tabs */
-
 #mining-rigs-list {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }
 
 #energy-management-list {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+#cooling-units-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+
+
+#upgrade-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
 }

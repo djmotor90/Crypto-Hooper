@@ -177,9 +177,6 @@ window.onclick = function(event) {
 
 
 // Create Mining Rigs
-
-
-
 let shopModal = document.getElementById('shop-modal');
 let shopBtn = document.getElementById('show-shop-btn');
 let closeShop = shopModal.querySelector('.close');
@@ -210,16 +207,12 @@ function showMiningRigs() {
     });
 
     // Toggle visibility
-    rigList.style.display = 'block';
+    rigList.style.display = 'grid';
     energyList.style.display = 'none';
 }
 
 
 // Energy management
-
-
-
-
 function showEnergyManagement() {
     const rigList = document.getElementById('mining-rigs-list');
     const energyList = document.getElementById('energy-management-list');
@@ -242,7 +235,69 @@ function showEnergyManagement() {
 
     // Toggle visibility
     rigList.style.display = 'none';
-    energyList.style.display = 'block';
+    energyList.style.display = 'grid';
 }
 
+// Colling management
+
+function showCoolingUnits() {
+    const coolingList = document.getElementById('cooling-units-list');
+    const rigList = document.getElementById('mining-rigs-list');
+    const energyList = document.getElementById('energy-management-list');
+
+    // Clear out any previous content
+    coolingList.innerHTML = '';
+
+    // Populate cooling units
+    coolingUnits.forEach(unit => {
+        const unitInfo = document.createElement('div');
+        unitInfo.innerHTML = `
+            <h3>${unit.name}</h3>
+            <p>Cooling Power: ${unit.coolingPower}</p>
+            <p>Energy Consumption: ${unit.energyConsumption}</p>
+            <p>Cost: $${unit.cost}</p>
+            <p>Description: ${unit.description}</p>
+            <button>Buy</button>
+        `;
+        coolingList.appendChild(unitInfo);
+    });
+
+    // Toggle visibility
+    rigList.style.display = 'none';
+    energyList.style.display = 'none';
+    coolingList.style.display = 'grid';
+}
+
+// Upgrade List
+
+// Upgrade Units
+function showRigUpgrades() {
+    const upgradeList = document.getElementById('upgrade-list');
+    const rigList = document.getElementById('mining-rigs-list');
+    const energyList = document.getElementById('energy-management-list');
+    const coolingList = document.getElementById('cooling-units-list');
+
+    // Clear out any previous content
+    upgradeList.innerHTML = '';
+
+    // Populate upgrades
+    rigUpgrades.forEach(upgrade => {
+        const upgradeInfo = document.createElement('div');
+        upgradeInfo.innerHTML = `
+            <h3>${upgrade.name}</h3>
+            <p>Effect: ${upgrade.effect}</p>
+            <p>Energy Consumption: ${upgrade.energyConsumption}</p>
+            <p>Cost: $${upgrade.cost}</p>
+            <p>Description: ${upgrade.description}</p>
+            <button>Buy</button>
+        `;
+        upgradeList.appendChild(upgradeInfo);
+    });
+
+    // Toggle visibility
+    rigList.style.display = 'none';
+    energyList.style.display = 'none';
+    coolingList.style.display = 'none';
+    upgradeList.style.display = 'grid';
+}
 

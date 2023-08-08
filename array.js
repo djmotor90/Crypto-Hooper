@@ -204,3 +204,153 @@ const playerStats = {
     etc: 0,
     neo: 0
 };
+
+// Colling Management
+
+const coolingUnits = [
+    {
+        name: "Boreas' Breath",
+        coolingPower: 10,
+        energyConsumption: 2,
+        cost: 1000,
+        description: "Harness the north wind's chilly gusts for basic cooling."
+    },
+    {
+        name: "Poseidon's Wave",
+        coolingPower: 20,
+        energyConsumption: 4,
+        cost: 2000,
+        description: "Utilize the refreshing power of sea waves for better cooling."
+    },
+    {
+        name: "Eurus' Zephyr",
+        coolingPower: 30,
+        energyConsumption: 6,
+        cost: 3000,
+        description: "Draw on the eastern wind's gentle breezes for efficient cooling."
+    },
+    {
+        name: "Hephaestus' Aether",
+        coolingPower: 40,
+        energyConsumption: 8,
+        cost: 4000,
+        description: "Use the pure upper air that the gods breathe for high-level cooling."
+    },
+    {
+        name: "Helios' Eclipse",
+        coolingPower: 50,
+        energyConsumption: 10,
+        cost: 5000,
+        description: "Employ the shadow of the sun god for powerful cooling."
+    },
+    {
+        name: "Notus' Mist",
+        coolingPower: 60,
+        energyConsumption: 12,
+        cost: 6000,
+        description: "Utilize the southern wind's foggy curtain for superior cooling."
+    },
+    {
+        name: "Hades' Chill",
+        coolingPower: 70,
+        energyConsumption: 14,
+        cost: 7000,
+        description: "Exploit the underworld's icy cold for supreme cooling."
+    },
+    {
+        name: "Demeter's Frost",
+        coolingPower: 80,
+        energyConsumption: 16,
+        cost: 8000,
+        description: "Leverage the goddess of harvest's wintry touch for efficient cooling."
+    },
+    {
+        name: "Artemis' Moonlight",
+        coolingPower: 90,
+        energyConsumption: 18,
+        cost: 9000,
+        description: "Use the cool light of the moon for effective cooling."
+    },
+    {
+        name: "Kronos' Void",
+        coolingPower: 100,
+        energyConsumption: 20,
+        cost: 10000,
+        description: "Utilize the void of the titan of time for ultimate cooling."
+    }
+];
+
+// Upgrades
+
+const rigUpgrades = [
+    {
+        name: "Aegis Shield",
+        effect: "Reduces breakdown probability by 10%",
+        energyConsumption: 1,
+        cost: 1000,
+        description: "The divine shield reduces wear and tear on your rig."
+    },
+    {
+        name: "Hermes' Winged Sandals",
+        effect: "Increases mining speed by 10%",
+        energyConsumption: 2,
+        cost: 2000,
+        description: "Fly through computations with the speed of Hermes."
+    },
+    {
+        name: "Aphrodite's Charm",
+        effect: "Increases resale value by 10%",
+        energyConsumption: 3,
+        cost: 3000,
+        description: "Make your rigs irresistible to buyers with Aphrodite's charm."
+    },
+    {
+        name: "Dionysus' Vine",
+        effect: "Reduces energy consumption by 10%",
+        energyConsumption: 4,
+        cost: 4000,
+        description: "Tap into the god of wine's ability to relax and reduce power drain."
+    },
+    {
+        name: "Athena's Owl",
+        effect: "Increases efficiency by 10%",
+        energyConsumption: 5,
+        cost: 5000,
+        description: "Boost your rig's wisdom and efficiency with Athena's owl."
+    },
+    {
+        name: "Apollo's Lyre",
+        effect: "Reduces heat generation by 10%",
+        energyConsumption: 6,
+        cost: 6000,
+        description: "Keep your rigs cool with the soothing tunes of Apollo's lyre."
+    },
+    {
+        name: "Hephaestus' Hammer",
+        effect: "Reduces repair costs by 10%",
+        energyConsumption: 7,
+        cost: 7000,
+        description: "Make repairs easier and cheaper with the blacksmith god's hammer."
+    },
+    {
+        name: "Poseidon's Trident",
+        effect: "Increases rig capacity by 10%",
+        energyConsumption: 8,
+        cost: 8000,
+        description: "Expand your rig's capacity with the sea god's trident."
+    },
+    {
+        name: "Hades' Helm",
+        effect: "Makes breakdowns less likely during peak hours",
+        energyConsumption: 9,
+        cost: 9000,
+        description: "Keep your rig safe during peak hours with the invisibility helm of Hades."
+    },
+    {
+        name: "Zeus' Thunderbolt",
+        effect: "Increases mining speed, efficiency, and capacity by 10%",
+        energyConsumption: 10,
+        cost: 10000,
+        description: "Supercharge your rig with the king god's thunderbolt."
+    }
+];
