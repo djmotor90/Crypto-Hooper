@@ -77,7 +77,32 @@
                 <button id="show-market-info-btn">Market Info</button>
     
 
+    <!-- Shop Modal -->
+<div id="shop-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Shop</h2>
+        
+        <!-- Tabs or sections for the shop -->
+        <div class="shop-sections">
+            <button onclick="showMiningRigs()">Mining Rigs</button>
+            <button onclick="showEnergyManagement()">Energy Management</button>
+            <!-- Add other sections/buttons as needed -->
+        </div>
+        
+        <!-- Content for Mining Rigs -->
+        <div id="mining-rigs-list" class="shop-content">
+            <!-- Mining rigs will be populated here -->
+        </div>
+        
+        <!-- Content for Energy Management -->
+        <div id="energy-management-list" class="shop-content">
+            <!-- Energy management will be populated here -->
+        </div>
 
+    </div>
+</div>
+<button id="show-shop-btn">Open Shop</button>
     </main>
         <!-- End of the player-info section -->
         
