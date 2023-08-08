@@ -8,19 +8,28 @@
 </head>
 
 <body class="start-screen">
-    <header>
-        <h1>Crypto Trooper</h1>
-    </header>    
+    <!-- <header>
+        <img id="logo" src="./assets/Background/Crypto Trooper.gif" alt="Logo in gif">
+    </header>     -->
+        <!-- Main Page START -->
+        <main id="landing-screen" class="landing-screen-background">
+            <button id="start-button">Start</button>
+        </main>
+        <!-- End of Main page -->
+
         <!-- Start of the login page -->
     <main id="start-screen" class="start-screen-background">
-        <button id="new-game-button">New Game</button>
-        <button id="load-game-button">Load Game</button>
-        <button id="playmusic" onclick="document.getElementById('bg-music').play()">Play Music</button>
+        <div class="button-container">
+            <img id="start-gif" src="./assets/Background/Crypto Trooper.gif" alt="Logo in gif">
+            <button id="new-game-button">New Game</button>
+            <button id="load-game-button">Load Game</button>
+        </div>
+        
         <button id="mute-button">Mute</button>
-        <audio id="bg-music" src="./assets/Music/Interstellar Mood - Nico Staf.mp3" loop autoplay> 
+        <audio id="bg-music-login" src="./assets/Music/Interstellar Mood - Nico Staf.mp3" loop autoplay> 
                     Your browser does not support the audio element.
         </audio>
-        <audio id="bg-music" src="./assets/Music/The Inner Sound - Jesse Gallagher.mp3" loop autoplay>
+        <audio id="bg-music-game" src="./assets/Music/The Inner Sound - Jesse Gallagher.mp3" loop autoplay>
                     Your browser does not support the audio element.
         </audio>
 
@@ -29,51 +38,35 @@
 
         <!-- Game Start -->
     <main id="game-screen">
+        <header>
+            <img id="logo" src="./assets/Background/Crypto Trooper.gif" alt="Logo in gif">
+        </header>  
+        <button id="mute-button-game">Mute</button>   <!-- Mute button top right corner -->
         <h2 id="sid-display"></h2>
+        
+        <button id="show-stats-btn">Show Player Stats</button>
         <!-- Section that will contain the information and stats of the player -->
-        <section id="player-info">
-            <h2>Player Info</h2>
-            <p>Balance: <span id="balance"></span></p>
-            <p>Total Revenue: <span id="total-revenue"></span></p>
-            <p>Total Expenses: <span id="total-expenses"></span></p>
-           
-        <button id="mute-button-game">Mute</button>
-        </section>
+        <div id="player-dashboard-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Player Stats</h2>
+                <ul>
+                <li>Balance: $<span id="player-cash">50000</span></li>
+                <li>Bitcoin (BTC): <span id="player-btc">0</span></li>
+                <li>Ethereum (ETH): <span id="player-eth">0</span></li>
+                <li>Litecoin (LTC): <span id="player-ltc">0</span></li>
+                <li>Bitcoin Cash (BCH): <span id="player-bch">0</span></li>
+                <li>Monero (XMR): <span id="player-xmr">0</span></li>
+                <li>Dash (DASH): <span id="player-dash">0</span></li>
+                <li>Zcash (ZEC): <span id="player-zec">0</span></li>
+                <li>Ethereum Classic (ETC): <span id="player-etc">0</span></li>
+                <li>NEO (NEO): <span id="player-neo">0</span></li>
+            </ul>
+            
+        </div>
         <!-- End of the player-info section -->
-
-        <!-- Section that will contain the information about market prices -->
-    <section id="market-info">
-        <h2>Market Prices</h2>
-                            <!-- Insert the mcurent market price here -->
-    </section>
-        <!-- End of the market-price section -->
-
-        <!-- Section that will contain information about mining rigs prices -->
-    <section id="mining-rigs">
-        <h2>Minig Rigs</h2>
-                            <!-- Space for information and buy/sell buttons -->
-    </section>
-        <!-- End of the market prices section -->
-
-        <!-- Section that will contain all the upgrades available  -->
-    <section id="upgrades">
-        <h2>Upgrades</h2>
-                            <!-- Space for upgrade with a buy button -->
-    </section>
-        <!-- End of upgrades section -->
-
-    <section id="cooling-systems">
-        <h2>Cooling Systems</h2>
-                            <!-- Space for the Cooling systems with buy button -->
-    </section>
-        <!-- End of cooling-systems section -->
-
-    <section id="energy-management">
-        <h2>Energy Management</h2>
-                            <!-- Space for the energy management space and buy button -->
-    </section>
-        <!-- End of the energy-management section -->
-    </main>
+        
+        
         <!-- Game END -->
 
         <!-- Footer Start -->

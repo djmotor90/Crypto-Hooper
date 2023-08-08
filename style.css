@@ -1,8 +1,53 @@
-/* Header styling */
-header {
-    text-align: center;
-    /* Style for the header section */
+/* Logo Start */
+#logo{
+    border-radius: 25px;
 }
+/* Logo End */
+
+
+
+/* Start Screen */
+
+#landing-screen {
+    background-image: url('assets/Background/loginpage.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body.landing-screen #mute-button {
+    display: none;
+}
+
+#start-button {
+    font-size: 4em;  
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border: none;
+    background-color: #3498db; 
+    color: white; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+}
+
+#start-button:hover {
+    background-color: #2980b9; 
+}
+
+/* End Start Screen */
+
+
+/* Header styling */
+
+    header {
+        display: flex;         
+        justify-content: center; 
+        align-items: center;  
+        
+    }
+
 /* Hides the title of the game */
 body.start-screen header {
     display: none;
@@ -11,10 +56,7 @@ body.start-screen header {
 body.start-screen footer {
     display: none;
 }
-/* Title styling */
-h1 {
-    /* Style for the main title */
-}
+
 
 /* Login Page styling */
 .start-screen-background {
@@ -30,15 +72,29 @@ h1 {
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    size: 500px;
+    width: 100%;
+    display: none;
 }
 
 #start-screen button {
-    font-size: 1.5em;  
-    padding: 1em;  
-    margin: 0.5em;
+    font-size: 1.5em;
+    padding: 1em;
+    margin: 0.5em 0; 
+    width: 200px;  
+    text-align: center;
+    
 
 }
+/* Buttons New and Load Game */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+/* End of New and Load Game */
 
 /* Music button controlls */
 #mute-button {
@@ -48,75 +104,40 @@ h1 {
     
 }
 
-#playmusic {
-    position: absolute;
-    top: 10px;
-    right: 100px;
-    
+
+
+/* LOGO Start */
+#start-gif {
+    margin-bottom: 80px;
+    max-width: 90%; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+  
 }
-
-
-
+/* Logo End */
 
 
 
 
 /* Main game section styling */
 #game-screen {
-   background-image: url('./assets//Background/backgroundgame.png');
-   background-size: cover;
-   background-repeat: no-repeat;
-   height: 90vh;
-   display: none;
-
-    /* Style for the main game area */
-}
-
-/* Player info section styling */
-#player-info {
-    /* Style for the player info section */
-}
-
-/* Market info section styling */
-#market-info {
-    /* Style for the market info section */
-}
-
-/* Mining rigs section styling */
-#mining-rigs {
-    /* Style for the mining rigs section */
-}
-
-/* Upgrades section styling */
-#upgrades {
-    /* Style for the upgrades section */
-}
-
-/* Cooling systems section styling */
-#cooling-systems {
-    /* Style for the cooling systems section */
-}
-
-/* Energy management section styling */
-#energy-management {
-    /* Style for the energy management section */
+    background-image: url('./assets/Background/backgroundgame.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+    display: none;
 }
 
 /* Footer styling */
 footer {
     text-align: center;
-    /* Style for the footer section */
+   
 }
 
-
-
-.button {
-    /* Style for all buttons */
-}
-
-.stat {
-    /* Style for all stats */
-}
 
 /* Music button controlls */
 #mute-button {
@@ -126,12 +147,6 @@ footer {
     
 }
 
-#playmusic {
-    position: absolute;
-    top: 10px;
-    right: 100px;
-    
-}
 
 
 #mute-button-game {
@@ -140,3 +155,43 @@ footer {
     right: 10px;
     
 }
+
+/* Player Dashboard */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+/* End of Player Dashboard */
