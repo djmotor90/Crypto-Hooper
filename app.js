@@ -67,6 +67,15 @@ document.getElementById('mute-button-game').addEventListener('click', function()
 
 // End of music Controls
 
+// Close button
+let closeButtons = document.querySelectorAll('.close');
+
+closeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        button.closest('.modal').style.display = 'none'; // Close the closest parent modal of the clicked button
+    });
+});
+
 
 // Player Dashboard
 
@@ -105,17 +114,82 @@ let modal = document.getElementById('player-dashboard-modal');
 let btn = document.getElementById('show-stats-btn');
 let span = document.getElementsByClassName('close')[0];
 
-btn.onclick = function() {
+
+// End of Player Dashboard
+
+
+// Market Value
+const cryptocurrencies = [
+    { name: 'Bitcoin', symbol: 'BTC', value: 29041.99 },
+    { name: 'Ethereum', symbol: 'ETH', value: 1833.75 },
+    { name: 'Litecoin', symbol: 'LTC', value: 82.69 },
+    { name: 'Bitcoin Cash', symbol: 'BCH', value: 225.1 },
+    { name: 'Monero', symbol: 'XMR', value: 75.85 },
+    { name: 'Dash', symbol: 'DASH', value: 31.13 },
+    { name: 'Zcash', symbol: 'ZEC', value: 28.40 },
+    { name: 'Ethereum Classic', symbol: 'ETC', value: 17.90 },
+    { name: 'NEO', symbol: 'NEO', value: 8.39 }
+  ];
+
+  function updateMarketValues() {
+    cryptocurrencies.forEach(crypto => {
+      const changePercent = Math.random() * 10 - 5; // Random change between -5% and +5%
+      crypto.value += crypto.value * (changePercent / 100);
+      crypto.value = parseFloat(crypto.value.toFixed(2)); // Round to 2 decimal places
+    });
+  }
+
+  setInterval(() => {
+    updateMarketValues();
+    displayMarketValues(); // This will be a new function to update the values on the page
+  }, 10000); // Update every 10 seconds
+  
+
+  function displayMarketValues() {
+    const marketList = document.getElementById('market-list');
+    marketList.innerHTML = '';
+    
+    cryptocurrencies.forEach(crypto => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${crypto.name} (${crypto.symbol}) = $${crypto.value}`;
+      marketList.appendChild(listItem);
+    });
+    
+    const updateTime = document.getElementById('update-time');
+    updateTime.textContent = `Last Updated: ${new Date().toLocaleString()}`;
+  }
+
+  // Market Info Modal Logic
+let marketInfoModal = document.getElementById('market-info-modal');
+let marketInfoBtn = document.getElementById('show-market-info-btn');
+let closeMarketInfo = document.getElementsByClassName('close')[0];
+
+
+
+// End of Market Value
+
+// Unified Modal Logic for all modals
+function showModal(modalId) {
+    let modal = document.getElementById(modalId);
     modal.style.display = 'block';
 }
 
-span.onclick = function() {
+function hideModal(modalId) {
+    let modal = document.getElementById(modalId);
     modal.style.display = 'none';
 }
 
+document.getElementById('show-stats-btn').addEventListener('click', function() {
+    showModal('player-dashboard-modal');
+});
+
+document.getElementById('show-market-info-btn').addEventListener('click', function() {
+    showModal('market-info-modal');
+    displayMarketValues();
+});
+
 window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
+    if (event.target.classList.contains('modal')) {
+        hideModal(event.target.id);
     }
 }
-// End of Player Dashboard
