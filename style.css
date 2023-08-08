@@ -219,6 +219,10 @@ footer {
 
 /* Shop Menu tabs */
 
-/* #mining-rigs-list, #energy-management-list {
+#mining-rigs-list {
+    display: block;
+}
+
+#energy-management-list {
     display: none;
-} */
+}
