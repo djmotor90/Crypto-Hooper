@@ -1,8 +1,11 @@
 /* Logo Start */
-#logo{
+#logo {
     border-radius: 25px;
+    display: block;
+    margin: 0 auto;
 }
 /* Logo End */
+
 
 
 
@@ -126,17 +129,25 @@ body.start-screen footer {
     background-image: url('./assets/Background/backgroundgame.png');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
-    z-index: 5;
+    z-index: 1;
     display: none;
+    overflow: auto;
 }
+
 
 /* Footer styling */
 footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     text-align: center;
-   
+    background-color: rgba(0,0,0,0.6);
+    color: white;
+    z-index: 2;
 }
+
 
 
 /* Music button controlls */
