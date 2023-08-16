@@ -1,7 +1,7 @@
 // Start Screen
 document.getElementById('start-button').addEventListener('click', function() {
-    document.getElementById('landing-screen').style.display = 'none';
-    document.getElementById('start-screen').style.display = 'block';
+    document.getElementById('landing-screen').style.display = 'none'; //https://stackoverflow.com/questions/73295576/how-to-create-a-start-screen-for-my-blackjack-game-in-html
+    document.getElementById('start-screen').style.display = 'block'; //https://stackoverflow.com/questions/73295576/how-to-create-a-start-screen-for-my-blackjack-game-in-html
     document.body.classList.remove('landing-screen');
     document.body.classList.add('start-screen');
     document.getElementById('bg-music-login').play(); // Play the login music
@@ -12,11 +12,11 @@ document.getElementById('start-button').addEventListener('click', function() {
 // Login Page Code
 document.getElementById('new-game-button').addEventListener('click', function() {
     console.log('New Game button was clicked');
-    const SID = Math.floor(Math.random() * 10000);
+    const SID = Math.floor(Math.random() * 10000); //https://www.sitepoint.com/jquery-infinite-scrolling-demos/
     console.log('Generated SID:', SID);
     document.getElementById('sid-display').innerText = `SID: ${SID}`;
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('game-screen').style.display = 'block';
+    document.getElementById('start-screen').style.display = 'none'; //https://stackoverflow.com/questions/73295576/how-to-create-a-start-screen-for-my-blackjack-game-in-html
+    document.getElementById('game-screen').style.display = 'block'; //https://stackoverflow.com/questions/73295576/how-to-create-a-start-screen-for-my-blackjack-game-in-html
     document.body.classList.remove('start-screen');
     document.body.classList.add('game-screen');
     
@@ -33,8 +33,8 @@ document.getElementById('load-game-button').addEventListener('click', function()
     const SID = prompt('Enter your SID:');
     console.log('Entered SID:', SID);
     document.getElementById('sid-display').innerText = `SID: ${SID}`;
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('game-screen').style.display = 'block';
+    document.getElementById('start-screen').style.display = 'none'; //https://stackoverflow.com/questions/73295576/how-to-create-a-start-screen-for-my-blackjack-game-in-html
+    document.getElementById('game-screen').style.display = 'block'; //https://stackoverflow.com/questions/73295576/how-to-create-a-start-screen-for-my-blackjack-game-in-html
     document.body.classList.remove('start-screen');
     document.body.classList.add('game-screen');
     
@@ -50,7 +50,7 @@ document.getElementById('load-game-button').addEventListener('click', function()
     displayPurchasedItems();
 });
 
-// Music controls
+// Music controls https://stackoverflow.com/questions/45117705/mute-unmute-button-for-background-sound
 document.getElementById('mute-button').addEventListener('click', function() {
     const bgMusicLogin = document.getElementById('bg-music-login');
     const bgMusicGame = document.getElementById('bg-music-game');
@@ -65,7 +65,7 @@ document.getElementById('mute-button').addEventListener('click', function() {
         this.innerText = 'Unmute';
     }
 });
-
+// Game mute buton logic https://stackoverflow.com/questions/45117705/mute-unmute-button-for-background-sound
 document.getElementById('mute-button-game').addEventListener('click', function() {
     const bgMusic = document.getElementById('bg-music-game');
     if (bgMusic.muted) {
@@ -84,7 +84,7 @@ let closeButtons = document.querySelectorAll('.close');
 
 closeButtons.forEach(button => {
     button.addEventListener('click', function() {
-        button.closest('.modal').style.display = 'none'; // Close the closest parent modal of the clicked button
+        button.closest('.modal').style.display = 'none'; // Close the closest parent modal of the clicked button <!-- This function was generated with assistance from ChatGPT by OpenAI -->
     });
 });
 
@@ -199,9 +199,9 @@ let span = document.getElementsByClassName('close')[0];
 
   function updateMarketValues() {
     cryptocurrencies.forEach(crypto => {
-      const changePercent = Math.random() * 10 - 5; // Random change between -5% and +5%
+      const changePercent = Math.random() * 10 - 5; // Random change between -5% and +5% //https://www.sitepoint.com/jquery-infinite-scrolling-demos/
       crypto.value += crypto.value * (changePercent / 100);
-      crypto.value = parseFloat(crypto.value.toFixed(2)); // Round to 2 decimal places
+      crypto.value = parseFloat(crypto.value.toFixed(2)); // Round to 2 decimal places https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
     });
   }
 
@@ -233,12 +233,12 @@ let closeMarketInfo = document.getElementsByClassName('close')[0];
 
 // Unified Modal Logic for all modals
 function showModal(modalId) {
-    let modal = document.getElementById(modalId);
+    let modal = document.getElementById(modalId); //https://stackoverflow.com/questions/60248882/modal-does-not-close-when-clicked
     modal.style.display = 'block';
 }
 
 function hideModal(modalId) {
-    let modal = document.getElementById(modalId);
+    let modal = document.getElementById(modalId); //https://stackoverflow.com/questions/60248882/modal-does-not-close-when-clicked
     modal.style.display = 'none';
 }
 
@@ -277,10 +277,10 @@ function showMiningRigs() {
     // Clear out any previous content
     rigList.innerHTML = '';
 
-    // Populate mining rigs
+    // Populate mining rigs https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     miningRigs.forEach(rig => {
         const rigInfo = document.createElement('div');
-        rigInfo.innerHTML = `
+        rigInfo.innerHTML = ` 
             <img src="${rig.image}" alt="${rig.name} Image" width="100">    
             <h3>${rig.name}</h3>
             <p>Mining Speed: ${rig.miningSpeed}</p>
@@ -320,7 +320,6 @@ function showMiningRigs() {
     upgradeList.style.display = 'none';
 }
 
-
     // Toggle visibility
     rigList.style.display = 'grid';
     energyList.style.display = 'none';
@@ -339,7 +338,7 @@ function showEnergyManagement() {
     // Clear out any previous content
     energyList.innerHTML = '';
 
-    // Populate energy units
+    // Populate energy units https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     energyUnits.forEach(unit => {
         const unitInfo = document.createElement('div');
         unitInfo.innerHTML = `
@@ -370,7 +369,7 @@ function showCoolingUnits() {
     // Clear out any previous content
     coolingList.innerHTML = '';
 
-    // Populate cooling units
+    // Populate cooling units https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     coolingUnits.forEach(unit => {
         const unitInfo = document.createElement('div');
         unitInfo.innerHTML = `
@@ -403,7 +402,7 @@ function showRigUpgrades() {
     // Clear out any previous content
     upgradeList.innerHTML = '';
 
-    // Populate upgrades
+    // Populate upgrades https://www.w3schools.com/jsref/prop_html_innerhtml.asp
     rigUpgrades.forEach(upgrade => {
         const upgradeInfo = document.createElement('div');
         upgradeInfo.innerHTML = `
@@ -435,7 +434,7 @@ function incrementCash() {
 setInterval(incrementCash, 60000);
 
 
-//Populate the fropdown with crypto symbols for mining
+//Populate the dropdown with crypto symbols for mining
 const cryptoDropdown = document.getElementById('crypto-selection');
 
 cryptocurrencies.forEach(crypto => {
@@ -460,3 +459,62 @@ function loadMiningSelection() {
 
 const selectedCryptoSymbol = cryptoDropdown.value;
 
+
+//logic for the purchased mininig rigs
+
+function mineCryptocurrency() {
+    // Get the selected cryptocurrency from the dropdown.
+    const selectedSymbol = document.getElementById('crypto-selection').value;
+    const selectedCrypto = cryptocurrencies.find(crypto => crypto.symbol === selectedSymbol);
+
+    // Compute the total mining rate from all purchased rigs.
+    let totalMiningRate = 0;
+    purchasedItems.forEach(itemName => {
+        const rig = miningRigs.find(rig => rig.name === itemName);
+        if (rig) {
+            // 3. Compute the mining rate for this rig.
+            const miningRate = 0.00001* rig.miningSpeed / selectedCrypto.difficulty;
+            totalMiningRate += miningRate;
+        }
+    });
+
+    // Update the player's balance for that cryptocurrency.
+    playerStats[selectedSymbol.toLowerCase()] += totalMiningRate;
+    updatePlayerDashboard();  // Assuming you have this function to update the player's displayed stats.
+    
+    // Save to localStorage
+    savePlayerStats();
+}
+
+// Call the mining function every 10 seconds
+setInterval(mineCryptocurrency, 10000);
+
+
+// Get all sell buttons
+const sellButtons = document.querySelectorAll('.sell-btn');
+
+// Add event listener to each sell button
+sellButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+        const cryptoType = this.getAttribute('data-crypto');
+
+        if (playerStats[cryptoType] > 0) { // Check if player has some of this cryptocurrency
+            const crypto = cryptocurrencies.find(c => c.symbol.toLowerCase() === cryptoType);
+            const saleAmount = crypto.value * playerStats[cryptoType];
+            playerStats.cash += saleAmount; // Update player's cash
+            playerStats[cryptoType] = 0;    // Set cryptocurrency balance to zero
+            
+            // Update player's dashboard
+            document.getElementById(`player-${cryptoType}`).textContent = playerStats[cryptoType];
+            document.getElementById('player-cash').textContent = playerStats.cash.toFixed(2); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+            
+            alert(`Sold all your ${crypto.name} for $${saleAmount.toFixed(2)}!`); //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+
+            // Save updated playerStats to localStorage
+            localStorage.setItem('playerStats', JSON.stringify(playerStats));
+
+        } else {
+            alert(`You don't have any ${cryptoType.toUpperCase()} to sell.`);
+        }
+    });
+});

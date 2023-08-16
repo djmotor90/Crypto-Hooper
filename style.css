@@ -232,7 +232,7 @@ footer {
     grid-gap: 20px;
 }
 
-/* Image of the house */
+/* Image of the player */
 #house-image {
     position: absolute;
     bottom: 20vh;

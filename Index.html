@@ -9,9 +9,7 @@
 </head>
 
 <body class="start-screen">
-    <!-- <header>
-        <img id="logo" src="./assets/Background/Crypto Trooper.gif" alt="Logo in gif">
-    </header>     -->
+  
         <!-- Main Page START -->
         <main id="landing-screen" class="landing-screen-background">
             <button id="start-button">Start</button>
@@ -47,22 +45,22 @@
         <h2 id="sid-display"></h2>
         
         <button id="show-stats-btn">Show Player Stats</button>
-        <!-- Section that will contain the information and stats of the player -->
-        <div id="player-dashboard-modal" class="modal">
-            <div class="modal-content">
+        <div id="player-dashboard-modal" class="modal"><!-- This function was generated with assistance from ChatGPT by OpenAI -->
+            <div class="modal-content"> <!--  //https://www.w3schools.com/w3css/w3css_modal.asp-->
                 <span class="close">&times;</span>
                 <h2>Player Stats</h2>
                 <ul>
                 <li>Balance: $<span id="player-cash">50000</span></li>
-                <li>Bitcoin (BTC): <span id="player-btc">0</span></li>
-                <li>Ethereum (ETH): <span id="player-eth">0</span></li>
-                <li>Litecoin (LTC): <span id="player-ltc">0</span></li>
-                <li>Bitcoin Cash (BCH): <span id="player-bch">0</span></li>
-                <li>Monero (XMR): <span id="player-xmr">0</span></li>
-                <li>Dash (DASH): <span id="player-dash">0</span></li>
-                <li>Zcash (ZEC): <span id="player-zec">0</span></li>
-                <li>Ethereum Classic (ETC): <span id="player-etc">0</span></li>
-                <li>NEO (NEO): <span id="player-neo">0</span></li>
+                <li><button class="sell-btn" data-crypto="btc">Sell</button> Bitcoin (BTC): <span id="player-btc">0</span></li>              
+                <li><button class="sell-btn" data-crypto="eth">Sell</button> Ethereum (ETH): <span id="player-eth">0</span></li>
+                <li><button class="sell-btn" data-crypto="ltc">Sell</button> Litecoin (LTC): <span id="player-ltc">0</span></li>
+                <li><button class="sell-btn" data-crypto="bch">Sell</button> Bitcoin Cash (BCH): <span id="player-bch">0</span></li>
+                <li><button class="sell-btn" data-crypto="xmr">Sell</button> Monero (XMR): <span id="player-xmr">0</span></li>
+                <li><button class="sell-btn" data-crypto="dash">Sell</button> Dash (DASH): <span id="player-dash">0</span></li>
+                <li><button class="sell-btn" data-crypto="zec">Sell</button> Zcash (ZEC): <span id="player-zec">0</span></li>
+                <li><button class="sell-btn" data-crypto="etc">Sell</button> Ethereum Classic (ETC): <span id="player-etc">0</span></li>
+                <li><button class="sell-btn" data-crypto="neo">Sell</button> NEO (NEO): <span id="player-neo">0</span></li>
+
             </ul>
             <label for="crypto-selection">Currently Mining:</label>
             <select id="crypto-selection"></select>
@@ -73,9 +71,9 @@
             </div>
         </div>
     </div>
-        <!-- Market Info Modal -->
+        <!-- Market Info Modal | This function was generated with assistance from ChatGPT by OpenAI -->
         <div id="market-info-modal" class="modal">
-         <div class="modal-content">
+         <div class="modal-content"> <!--  //https://www.w3schools.com/w3css/w3css_modal.asp-->
             <span class="close">&times;</span>
                 <h2>Market Info</h2>
                     <ul id="market-list"></ul>
@@ -85,9 +83,9 @@
                 <button id="show-market-info-btn">Market Info</button>
     
 
-    <!-- Shop Modal -->
+    <!-- Shop Modal | This function was generated with assistance from ChatGPT by OpenAI -->
 <div id="shop-modal" class="modal">
-    <div class="modal-content">
+    <div class="modal-content"> <!--  //https://www.w3schools.com/w3css/w3css_modal.asp-->
         <span class="close">&times;</span>
         <h2>Shop</h2>
         
@@ -97,27 +95,22 @@
             <button onclick="showEnergyManagement()">Energy Management</button>
             <button onclick="showCoolingUnits()">Cooling Management</button>
             <button onclick="showRigUpgrades()">Upgrades</button>
-            <!-- Add other sections/buttons as needed -->
         </div>
         
         <!-- Content for Mining Rigs -->
         <div id="mining-rigs-list" class="shop-content">
-            <!-- Mining rigs will be populated here -->
         </div>
         
         <!-- Content for Energy Management -->
         <div id="energy-management-list" class="shop-content">
-            <!-- Energy management will be populated here -->
         </div>
 
             <!-- Cooling Management -->
         <div id="cooling-units-list" class="shop-content">
-            <!-- Cooling units will be populated here -->
         </div>
 
             <!-- Upgrade List -->
         <div id="upgrade-list" class="shop-content">
-            <!-- Upgrade units will be populated here -->
         </div>
     </div>
 </div>
