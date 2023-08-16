@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Crypto Trooper</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favico/cryptofavico.ico">
 </head>
 
 <body class="start-screen">
@@ -40,7 +41,8 @@
     <main id="game-screen">
         <header>
             <img id="logo" src="./assets/Background/Crypto Trooper.gif" alt="Logo in gif">
-        </header>  
+        </header> 
+        <img id="house-image" src="./assets/House/cryptohouse1.png" alt="Crypto House">
         <button id="mute-button-game">Mute</button>   <!-- Mute button top right corner -->
         <h2 id="sid-display"></h2>
         
@@ -62,9 +64,15 @@
                 <li>Ethereum Classic (ETC): <span id="player-etc">0</span></li>
                 <li>NEO (NEO): <span id="player-neo">0</span></li>
             </ul>
+            <label for="crypto-selection">Currently Mining:</label>
+            <select id="crypto-selection"></select>
+
+            <div id="player-purchased-items">
+                <h3>Purchased Items:</h3>
+                <ul id="purchased-items-list"></ul>
             </div>
         </div>
-
+    </div>
         <!-- Market Info Modal -->
         <div id="market-info-modal" class="modal">
          <div class="modal-content">
@@ -88,7 +96,7 @@
             <button onclick="showMiningRigs()">Mining Rigs</button>
             <button onclick="showEnergyManagement()">Energy Management</button>
             <button onclick="showCoolingUnits()">Cooling Management</button>
-            <button onclick="showRigUpgrades()">Cooling Management</button>
+            <button onclick="showRigUpgrades()">Upgrades</button>
             <!-- Add other sections/buttons as needed -->
         </div>
         

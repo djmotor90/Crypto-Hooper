@@ -10,7 +10,8 @@ const miningRigs = [
         repairCost: 800,
         heatGeneration: 15,
         resaleValue: 7000,
-        upgradeSlots: 4
+        upgradeSlots: 4,
+        image: "assets/MiningRig/ZeusMiner.png"
     },
     {
         name: 'Hera Excavator',
@@ -21,7 +22,8 @@ const miningRigs = [
         repairCost: 750,
         heatGeneration: 14,
         resaleValue: 6300,
-        upgradeSlots: 3
+        upgradeSlots: 3,
+        image: "assets/MiningRig/HeraExcavator.png"
     },
     {
         name: 'Poseidon Drill',
@@ -32,7 +34,8 @@ const miningRigs = [
         repairCost: 700,
         heatGeneration: 13,
         resaleValue: 5600,
-        upgradeSlots: 3
+        upgradeSlots: 3,
+        image: "assets/MiningRig/PoseidonDrill.png"
     },
     {
         name: 'Athena Processor',
@@ -43,7 +46,8 @@ const miningRigs = [
         repairCost: 650,
         heatGeneration: 12,
         resaleValue: 4900,
-        upgradeSlots: 2
+        upgradeSlots: 2,
+        image: "assets/MiningRig/AthenaProcessor.png"
     },
     {
         name: 'Ares Harvester',
@@ -54,7 +58,8 @@ const miningRigs = [
         repairCost: 600,
         heatGeneration: 11,
         resaleValue: 4200,
-        upgradeSlots: 2
+        upgradeSlots: 2,
+        image: "assets/MiningRig/AresHarvester.png"
     },
     {
         name: 'Apollo Rig',
@@ -65,7 +70,8 @@ const miningRigs = [
         repairCost: 550,
         heatGeneration: 10,
         resaleValue: 3500,
-        upgradeSlots: 1
+        upgradeSlots: 1,
+        image: "assets/MiningRig/ApolloRig.png"
     },
     {
         name: 'Artemis Extractor',
@@ -76,7 +82,8 @@ const miningRigs = [
         repairCost: 500,
         heatGeneration: 9,
         resaleValue: 2800,
-        upgradeSlots: 1
+        upgradeSlots: 1,
+        image: "assets/MiningRig/ArtemisExtractor.png"
     },
     {
         name: 'Hermes Miner',
@@ -87,7 +94,8 @@ const miningRigs = [
         repairCost: 450,
         heatGeneration: 8,
         resaleValue: 2100,
-        upgradeSlots: 0
+        upgradeSlots: 0,
+        image: "assets/MiningRig/HermesMiner.png"
     },
     {
         name: 'Hephaestus Furnace',
@@ -98,7 +106,8 @@ const miningRigs = [
         repairCost: 400,
         heatGeneration: 7,
         resaleValue: 1400,
-        upgradeSlots: 0
+        upgradeSlots: 0,
+        image: "assets/MiningRig/HephaestusFurnace.png"
     },
     {
         name: 'Demeter Digger',
@@ -109,7 +118,8 @@ const miningRigs = [
         repairCost: 300,
         heatGeneration: 6,
         resaleValue: 700,
-        upgradeSlots: 0
+        upgradeSlots: 0,
+        image: "assets/MiningRig/DemeterDigger.png"
     }
 ];
 
@@ -180,20 +190,20 @@ const energyUnits = [
 // Crypto
 
 const cryptocurrencies = [
-    { name: 'Bitcoin', symbol: 'BTC', value: 29041.99 },
-    { name: 'Ethereum', symbol: 'ETH', value: 1833.75 },
-    { name: 'Litecoin', symbol: 'LTC', value: 82.69 },
-    { name: 'Bitcoin Cash', symbol: 'BCH', value: 225.1 },
-    { name: 'Monero', symbol: 'XMR', value: 75.85 },
-    { name: 'Dash', symbol: 'DASH', value: 31.13 },
-    { name: 'Zcash', symbol: 'ZEC', value: 28.40 },
-    { name: 'Ethereum Classic', symbol: 'ETC', value: 17.90 },
-    { name: 'NEO', symbol: 'NEO', value: 8.39 }
-  ];
+    { name: 'Bitcoin', symbol: 'BTC', value: 29041.99, difficulty: 10 },
+    { name: 'Ethereum', symbol: 'ETH', value: 1833.75, difficulty: 8 },
+    { name: 'Litecoin', symbol: 'LTC', value: 82.69, difficulty: 6 },
+    { name: 'Bitcoin Cash', symbol: 'BCH', value: 225.1, difficulty: 7 },
+    { name: 'Monero', symbol: 'XMR', value: 75.85, difficulty: 5 },
+    { name: 'Dash', symbol: 'DASH', value: 31.13, difficulty: 4 },
+    { name: 'Zcash', symbol: 'ZEC', value: 28.40, difficulty: 3 },
+    { name: 'Ethereum Classic', symbol: 'ETC', value: 17.90, difficulty: 2 },
+    { name: 'NEO', symbol: 'NEO', value: 8.39, difficulty: 1 }
+];
 
 //   Player Dashboard
-const playerStats = {
-    cash: 50001, // Starting balance
+let playerStats = {
+    cash: 50000, // Starting balance
     btc: 0,
     eth: 0,
     ltc: 0,

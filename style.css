@@ -231,3 +231,13 @@ footer {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
 }
+
+/* Image of the house */
+#house-image {
+    position: absolute;
+    bottom: 20vh;
+    left: 1vw; 
+    width: 20vw; 
+    height: auto;
+    z-index: 1;
+}

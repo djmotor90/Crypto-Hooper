@@ -22,6 +22,10 @@ document.getElementById('new-game-button').addEventListener('click', function() 
     
     document.getElementById('bg-music-login').pause(); // Pause the login music
     document.getElementById('bg-music-game').play(); // Play the game music
+
+    // Reset purchases for new game
+    purchasedItems = [];
+    savePurchases();
 });
 
 document.getElementById('load-game-button').addEventListener('click', function() {
@@ -36,6 +40,14 @@ document.getElementById('load-game-button').addEventListener('click', function()
     
     document.getElementById('bg-music-login').pause(); // Pause the login music
     document.getElementById('bg-music-game').play(); // Play the game music
+    
+    // Load the player's stats and purchases from localStorage
+    loadPlayerStats();
+    loadPurchases();
+    loadMiningSelection();
+    // Update the player dashboard and the purchased items list
+    updatePlayerDashboard();
+    displayPurchasedItems();
 });
 
 // Music controls
@@ -76,9 +88,83 @@ closeButtons.forEach(button => {
     });
 });
 
-
 // Player Dashboard
 
+// Maintain the purchase record
+let purchasedItems = [];
+const rigList = document.getElementById('mining-rigs-list');
+const energyList = document.getElementById('energy-management-list');
+const coolingList = document.getElementById('cooling-units-list');
+const upgradeList = document.getElementById('upgrade-list');
+
+// Function to save the player's current purchases to localStorage
+function savePurchases() {
+    const SID = document.getElementById('sid-display').innerText.split(" ")[1];
+    localStorage.setItem(`purchasedItems_${SID}`, JSON.stringify(purchasedItems));
+}
+
+// Function to load the player's purchases from localStorage
+function loadPurchases() {
+    const SID = document.getElementById('sid-display').innerText.split(" ")[1];
+    const loadedPurchases = localStorage.getItem(`purchasedItems_${SID}`);
+    if (loadedPurchases) {
+        purchasedItems = JSON.parse(loadedPurchases);
+    } else {
+        purchasedItems = [];
+    }
+}
+
+// Function to save the player's current stats to localStorage
+function savePlayerStats() {
+    const SID = document.getElementById('sid-display').innerText.split(" ")[1];
+    localStorage.setItem(`playerStats-${SID}`, JSON.stringify(playerStats));
+}
+
+// Function to load the player's stats from localStorage
+function loadPlayerStats() {
+    const SID = document.getElementById('sid-display').innerText.split(" ")[1];
+    const loadedStats = localStorage.getItem(`playerStats-${SID}`);
+    if (loadedStats) {
+        playerStats = JSON.parse(loadedStats);
+    }
+}
+
+// Function to display the list of purchased items in the Player Dashboard
+function displayPurchasedItems() {
+    const purchasedItemsList = document.getElementById('purchased-items-list');
+    
+    // Clear the list
+    purchasedItemsList.innerHTML = '';
+    
+    // Populate the list with purchased items
+    purchasedItems.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = item;
+        const sellButton = document.createElement('button');
+        sellButton.textContent = 'Sell';
+        sellButton.addEventListener('click', function() {
+            // Find the rig's resale value
+            const rig = miningRigs.find(rig => rig.name === item);
+            if (rig) {
+                playerStats.cash += rig.resaleValue; // Add the resale value to player's cash
+                alert(`Sold ${item} for $${rig.resaleValue}`);
+            } else {
+                alert(`Sold ${item}`);
+            }
+            
+            // Remove the item from the purchased items list
+            const itemIndex = purchasedItems.indexOf(item);
+            if (itemIndex > -1) {
+                purchasedItems.splice(itemIndex, 1);
+            }
+            displayPurchasedItems();
+            updatePlayerDashboard();
+            savePurchases();
+        });
+        listItem.appendChild(sellButton);
+        purchasedItemsList.appendChild(listItem);
+    });
+}
 
 
 // Function to update the display with player stats
@@ -93,6 +179,7 @@ function updatePlayerDashboard() {
     document.getElementById('player-zec').textContent = playerStats.zec;
     document.getElementById('player-etc').textContent = playerStats.etc;
     document.getElementById('player-neo').textContent = playerStats.neo;
+    savePlayerStats();
 }
 
 
@@ -157,8 +244,8 @@ function hideModal(modalId) {
 
 document.getElementById('show-stats-btn').addEventListener('click', function() {
     showModal('player-dashboard-modal');
+    displayPurchasedItems();
 });
-
 document.getElementById('show-market-info-btn').addEventListener('click', function() {
     showModal('market-info-modal');
     displayMarketValues();
@@ -182,8 +269,10 @@ let shopBtn = document.getElementById('show-shop-btn');
 let closeShop = shopModal.querySelector('.close');
 
 function showMiningRigs() {
+    const coolingList = document.getElementById('cooling-units-list');
     const rigList = document.getElementById('mining-rigs-list');
     const energyList = document.getElementById('energy-management-list');
+    const upgradeList = document.getElementById('upgrade-list');
 
     // Clear out any previous content
     rigList.innerHTML = '';
@@ -192,6 +281,7 @@ function showMiningRigs() {
     miningRigs.forEach(rig => {
         const rigInfo = document.createElement('div');
         rigInfo.innerHTML = `
+            <img src="${rig.image}" alt="${rig.name} Image" width="100">    
             <h3>${rig.name}</h3>
             <p>Mining Speed: ${rig.miningSpeed}</p>
             <p>Energy Consumption: ${rig.energyConsumption}</p>
@@ -201,21 +291,50 @@ function showMiningRigs() {
             <p>Heat Generation: ${rig.heatGeneration}</p>
             <p>Resale Value: $${rig.resaleValue}</p>
             <p>Upgrade Slots: ${rig.upgradeSlots}</p>
-            <button>Buy</button>
+            <button class="buy-btn" data-cost="${rig.cost}" data-name="${rig.name}">Buy</button>
+
         `;
         rigList.appendChild(rigInfo);
+    });
+    rigList.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const cost = parseFloat(this.getAttribute('data-cost'));
+            const rigName = this.getAttribute('data-name');
+            
+            if (playerStats.cash >= cost) {
+                playerStats.cash -= cost;  // deduct the cost from player's cash
+                purchasedItems.push(rigName);  // Store the rig name in the purchased items array
+                savePurchases();  // Save the purchases to localStorage
+                alert('Purchase successful!');
+                updatePlayerDashboard();  // Update player's cash display
+            } else {
+                alert('Insufficient funds!');
+            }
+        });
     });
 
     // Toggle visibility
     rigList.style.display = 'grid';
     energyList.style.display = 'none';
+    coolingList.style.display = 'none';
+    upgradeList.style.display = 'none';
 }
+
+
+    // Toggle visibility
+    rigList.style.display = 'grid';
+    energyList.style.display = 'none';
+    coolingList.style.display = 'none';
+    upgradeList.style.display = 'none';
+
 
 
 // Energy management
 function showEnergyManagement() {
+    const coolingList = document.getElementById('cooling-units-list');
     const rigList = document.getElementById('mining-rigs-list');
     const energyList = document.getElementById('energy-management-list');
+    const upgradeList = document.getElementById('upgrade-list');
 
     // Clear out any previous content
     energyList.innerHTML = '';
@@ -236,6 +355,8 @@ function showEnergyManagement() {
     // Toggle visibility
     rigList.style.display = 'none';
     energyList.style.display = 'grid';
+    coolingList.style.display = 'none';
+    upgradeList.style.display = 'none';
 }
 
 // Colling management
@@ -244,6 +365,7 @@ function showCoolingUnits() {
     const coolingList = document.getElementById('cooling-units-list');
     const rigList = document.getElementById('mining-rigs-list');
     const energyList = document.getElementById('energy-management-list');
+    const upgradeList = document.getElementById('upgrade-list');
 
     // Clear out any previous content
     coolingList.innerHTML = '';
@@ -266,6 +388,7 @@ function showCoolingUnits() {
     rigList.style.display = 'none';
     energyList.style.display = 'none';
     coolingList.style.display = 'grid';
+    upgradeList.style.display = 'none';
 }
 
 // Upgrade List
@@ -300,4 +423,40 @@ function showRigUpgrades() {
     coolingList.style.display = 'none';
     upgradeList.style.display = 'grid';
 }
+
+// Function to increment the player's cash by $0.01 as a standart for everyone
+function incrementCash() {
+    playerStats.cash += 0.01;
+    updatePlayerDashboard();
+    savePlayerStats();
+}
+
+// Schedule the function to be called every 1 minute
+setInterval(incrementCash, 60000);
+
+
+//Populate the fropdown with crypto symbols for mining
+const cryptoDropdown = document.getElementById('crypto-selection');
+
+cryptocurrencies.forEach(crypto => {
+    const option = document.createElement('option');
+    option.value = crypto.symbol;
+    option.textContent = `${crypto.name} (${crypto.symbol})`;
+    cryptoDropdown.appendChild(option);
+});
+//This will save the selection in the localstorage
+cryptoDropdown.addEventListener('change', function() {
+    const SID = document.getElementById('sid-display').innerText.split(" ")[1];
+    localStorage.setItem(`currentlyMining_${SID}`, this.value);
+});
+
+function loadMiningSelection() {
+    const SID = document.getElementById('sid-display').innerText.split(" ")[1];
+    const savedMiningSelection = localStorage.getItem(`currentlyMining_${SID}`);
+    if (savedMiningSelection) {
+        cryptoDropdown.value = savedMiningSelection;
+    }
+}
+
+const selectedCryptoSymbol = cryptoDropdown.value;
 
