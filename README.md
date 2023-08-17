@@ -17,7 +17,12 @@ Welcome to Crypto Trooper, the thrilling browser-based cryptocurrency mining sim
 2. Click the 'Start' button.
 3. Choose between starting a new game or loading a saved game.
 
+![Landing page image](https://i.ibb.co/nnjJ6zg/Screenshot-2023-08-16-at-7-07-35-PM.png)
+
 ## Gameplay Overview
+
+
+![New/Load Game](https://github.com/djmotor90/Crypto-Hooper/assets/98438389/46058fc4-807d-4d3c-bf07-f5a6fc36febb)
 
 **Objective**: Increase your crypto wealth by mining various cryptocurrencies and managing your energy and cooling resources efficiently.
 
