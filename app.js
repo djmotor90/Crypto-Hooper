@@ -27,7 +27,7 @@ document.getElementById('new-game-button').addEventListener('click', function() 
     purchasedItems = [];
     savePurchases();
 });
-
+//Load game function
 document.getElementById('load-game-button').addEventListener('click', function() {
     console.log('Load Game button was clicked');
     const SID = prompt('Enter your SID:');
