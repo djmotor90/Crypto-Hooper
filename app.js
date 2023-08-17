@@ -191,7 +191,7 @@ let btn = document.getElementById('show-stats-btn');
 let span = document.getElementsByClassName('close')[0];
 
 
-// End of Player Dashboard
+// End of Player Dashboard1
 
 
 // Market Value
